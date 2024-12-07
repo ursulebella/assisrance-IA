@@ -1,0 +1,261 @@
+import React, { useState } from 'react';
+import { 
+  Rocket, 
+  BarChart2, 
+  Shield, 
+  Layers, 
+  TrendingUp, 
+  Activity, 
+  Globe, 
+  PieChart,
+  BarChart,
+  Database,
+  Cpu
+} from 'lucide-react';
+
+const AdvancedFeatureSection = () => {
+  const [activeFeature, setActiveFeature] = useState('risk_simulation');
+
+  const advancedFeatures = {
+    risk_simulation: {
+      icon: <BarChart className="w-12 h-12 text-red-600" />,
+      title: "Simulation de Risques Avancée",
+      description: "Analyse Monte Carlo et évaluation comprehensive des risques",
+      details: [
+        "Simulations multi-stratégies",
+        "Probabilité de perte détaillée",
+        "Distribution des rendements",
+        "Tests de scénarios complexes"
+      ]
+    },
+    data_intelligence: {
+      icon: <Database className="w-12 h-12 text-green-600" />,
+      title: "Intelligence des Données",
+      description: "Analyse statistique et prédictive de pointe",
+      details: [
+        "Détection de tendances avancées",
+        "Corrélations dynamiques",
+        "Prévisions intelligentes",
+        "Analyse de momentum"
+      ]
+    },
+    enterprise_risk: {
+      icon: <Cpu className="w-12 h-12 text-purple-600" />,
+      title: "Évaluation des Risques Entreprise",
+      description: "Évaluation multidimensionnelle des risques d'entreprise",
+      details: [
+        "Score de risque global",
+        "Analyse de stabilité financière",
+        "Évaluation de la performance opérationnelle",
+        "Recommandations de mitigation"
+      ]
+    }
+  };
+
+  return (
+    <section className="py-16 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 className="text-3xl font-bold text-center mb-12">Technologies IA Avancées</h2>
+        
+        <div className="flex space-x-4 mb-8 justify-center">
+          {Object.keys(advancedFeatures).map((featureKey) => (
+            <button
+              key={featureKey}
+              onClick={() => setActiveFeature(featureKey)}
+              className={`px-4 py-2 rounded-full ${
+                activeFeature === featureKey 
+                ? 'bg-blue-600 text-white' 
+                : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+              }`}
+            >
+              {advancedFeatures[featureKey].title}
+            </button>
+          ))}
+        </div>
+
+        <div className="bg-white rounded-lg p-8 shadow-md flex items-center">
+          <div className="w-1/3 flex justify-center">
+            {advancedFeatures[activeFeature].icon}
+          </div>
+          <div className="w-2/3">
+            <h3 className="text-2xl font-bold mb-4">
+              {advancedFeatures[activeFeature].title}
+            </h3>
+            <p className="text-gray-600 mb-4">
+              {advancedFeatures[activeFeature].description}
+            </p>
+            <ul className="space-y-2">
+              {advancedFeatures[activeFeature].details.map((detail, index) => (
+                <li key={index} className="flex items-center">
+                  <Activity className="w-5 h-5 text-blue-500 mr-2" />
+                  {detail}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FinancialAILandingPage = () => {
+  const [activeModule, setActiveModule] = useState('market_intelligence');
+
+  const modules = {
+    market_intelligence: {
+      icon: <Globe className="w-12 h-12 text-blue-600" />,
+      title: "Intelligence de Marché",
+      description: "Une analyse approfondie des marchés financiers avec des capacités avancées.",
+      features: [
+        "Analyse multi-actifs",
+        "Analyse de sentiment",
+        "Indicateurs macroéconomiques",
+        "Évaluation des risques géopolitiques"
+      ]
+    },
+    risk_management: {
+      icon: <Shield className="w-12 h-12 text-green-600" />,
+      title: "Gestion des Risques",
+      description: "Modélisation et simulation des risques financiers de pointe.",
+      features: [
+        "Modélisation avancée des risques",
+        "Analyse de scénarios",
+        "Simulations Monte Carlo",
+        "Tests de résistance renforcés"
+      ]
+    },
+    investment_strategy: {
+      icon: <TrendingUp className="w-12 h-12 text-purple-600" />,
+      title: "Stratégie d'Investissement",
+      description: "Des stratégies d'investissement intelligentes et adaptatives.",
+      features: [
+        "Optimisation de portefeuille",
+        "Prédictions par machine learning",
+        "Intégration de données alternatives",
+        "Stratégies de trading algorithmique"
+      ]
+    },
+    strategic_advisory: {
+      icon: <PieChart className="w-12 h-12 text-red-600" />,
+      title: "Conseil Stratégique",
+      description: "Conseils financiers stratégiques de niveau entreprise.",
+      features: [
+        "Évaluation d'entreprise avancée",
+        "Analyse de fusions et acquisitions",
+        "Planification financière stratégique",
+        "Impact financier de la durabilité"
+      ]
+    }
+  };
+
+  return (
+    <div className="min-h-screen bg-gray-50 flex flex-col">
+      {/* Navigation */}
+      <nav className="bg-white shadow-md">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <Rocket className="h-8 w-8 text-blue-700 mr-3" />
+              <span className="text-2xl font-bold text-gray-900">AI Stratège Financier</span>
+            </div>
+            <div className="flex space-x-4">
+              <a href="#" className="text-gray-600 hover:text-blue-600">Accueil</a>
+              <a href="#" className="text-gray-600 hover:text-blue-600">Modules</a>
+              <a href="#" className="text-gray-600 hover:text-blue-600">Contact</a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      {/* Hero Section */}
+      <header className="bg-gradient-to-r from-blue-600 to-purple-600 text-white py-20">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h1 className="text-4xl font-extrabold mb-4">Intelligence Financière Avancée</h1>
+          <p className="text-xl mb-8">Une solution IA révolutionnaire pour l'analyse et la stratégie financière</p>
+          <div className="flex justify-center space-x-4">
+            <button className="bg-white text-blue-600 px-6 py-3 rounded-full font-semibold hover:bg-blue-50">
+              Commencer
+            </button>
+            <button className="bg-transparent border-2 border-white text-white px-6 py-3 rounded-full hover:bg-white hover:text-blue-600">
+              En savoir plus
+            </button>
+          </div>
+        </div>
+      </header>
+
+      {/* Modules Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center mb-12">Nos Modules Sophistiqués</h2>
+          <div className="flex space-x-4 mb-8 justify-center">
+            {Object.keys(modules).map((moduleKey) => (
+              <button
+                key={moduleKey}
+                onClick={() => setActiveModule(moduleKey)}
+                className={`px-4 py-2 rounded-full ${
+                  activeModule === moduleKey 
+                  ? 'bg-blue-600 text-white' 
+                  : 'bg-gray-200 text-gray-700 hover:bg-gray-300'
+                }`}
+              >
+                {modules[moduleKey].title}
+              </button>
+            ))}
+          </div>
+
+          <div className="bg-gray-50 rounded-lg p-8 shadow-md flex items-center">
+            <div className="w-1/3 flex justify-center">
+              {modules[activeModule].icon}
+            </div>
+            <div className="w-2/3">
+              <h3 className="text-2xl font-bold mb-4">{modules[activeModule].title}</h3>
+              <p className="text-gray-600 mb-4">{modules[activeModule].description}</p>
+              <ul className="space-y-2">
+                {modules[activeModule].features.map((feature, index) => (
+                  <li key={index} className="flex items-center">
+                    <Activity className="w-5 h-5 text-blue-500 mr-2" />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Advanced Features Section */}
+      <AdvancedFeatureSection />
+
+      {/* Testimonials Section */}
+      <section className="py-16 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-3xl font-bold mb-8">Ce que nos clients disent</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+              <p className="italic mb-4">"Une solution IA révolutionnaire qui transforme notre approche de l'analyse financière."</p>
+              <p className="font-semibold">- Jean Dupont, Directeur Financier</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+              <p className="italic mb-4">"Des insights de marché incroyablement précis et en temps réel."</p>
+              <p className="font-semibold">- Marie Leclerc, Gestionnaire de Portefeuille</p>
+            </div>
+            <div className="bg-gray-50 p-6 rounded-lg shadow-md">
+              <p className="italic mb-4">"La gestion des risques n'a jamais été aussi sophistiquée et intuitive."</p>
+              <p className="font-semibold">- Pierre Martin, Analyste Stratégique</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <p>&copy; 2024 AI Stratège Financier. Tous droits réservés.</p>
+        </div>
+      </footer>
+    </div>
+  );
+};
+
+export default FinancialAILandingPage;
